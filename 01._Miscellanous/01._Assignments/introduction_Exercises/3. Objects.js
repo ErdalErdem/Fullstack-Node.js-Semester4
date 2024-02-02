@@ -44,7 +44,7 @@ delete thisSong.description;
 
 // remove the property "description" and add a property called "about" that should say "Just a tribute." 
 
-thisSong.about = "Just a tribute"
+thisSong.about = "Just a tribute";
 
 
 // --------------------------------------

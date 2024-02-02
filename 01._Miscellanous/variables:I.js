@@ -36,4 +36,4 @@ me.hobbies = hobbies;
 
 const stringOne = ""
 const stringTwo = '';
-const stringThree = `This """ ${} is one way of defining`;
+const stringThree = `This """ is one way of defining`;
