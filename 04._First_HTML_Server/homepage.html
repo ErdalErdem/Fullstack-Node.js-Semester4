@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-   <!--- <link rel="stylesheet" href="stylesheet.css"> --> <!-- Fungere ikke lige pt med vercel -->
+    <!-- <link rel="stylesheet" href="./homepage.css"> -->
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Does this work!?!?!?!</h1>
 
-  </head>
-  <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-	<script src="index.js"></script>
-    <!-- <script src="homepage.js"></script> --> <!-- Fungere ikke lige pt med vercel, rettes næste uge -->
+    <!-- inline styling -->
+    <div id="celebration-box" style="color: green">
+        <h3>Yes it does</h3>
+    </div>
 
-<input placeholder="Your Name here">
-<button>Get Greeting</button>
+    <input id="name-input" placeholder="Your name here" />
+    <button onclick="showGreeting()">Get Greeting</button>
+    
+    <h2 id="greeting-text"></h2>
 
-<h2 id= "greeting-text"></h2>
-
-<!-- assignment: get the greeting based on the name in the input field and show it on the page -->
-
-
-
+    <a href="/publicsquare">Public Square</a>
 
     <script>
-// task make a request to /greeting and console log the greeting
+        const nameInput = document.getElementById("name-input");
+        const greetingH2 = document.getElementById("greeting-text");
 
-const nameinput = document.getElementById("name-input");
-const greeting2 = document.getElementById("greeting-text")
-function showGreeting() {
-    const name = nameinput.value;
-fetch("/greeting?name" + name)
-.then((response) => response.json())
-.then((result) => {
-    greetingH2.textContent = result.data;
-    });
-}
-
-
-
-
-            fetch("greeting?name=knowName")
-                .then(response => response.json())
-                .then((result) => {
-                console.log(result.data); // Logs the greeting to the console
-                });
-
+        function showGreeting() {
+            const name = nameInput.value;
+            fetch("/greeting?name=" + name)
+            .then((response) => response.json())
+            .then((result) => {
+                greetingH2.textContent = result.data;
+            });
+        }
     </script>
-
-  </body>
+    <!-- <script src="./homepage.js"></script> -->
+</body>
 </html>
