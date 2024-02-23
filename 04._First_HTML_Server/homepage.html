@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+   <!--- <link rel="stylesheet" href="stylesheet.css"> --> <!-- Fungere ikke lige pt med vercel -->
+
+  </head>
+  <body>
+    <main>
+        <h1>Welcome to My Website</h1>  
+    </main>
+	<script src="index.js"></script>
+    <!-- <script src="homepage.js"></script> --> <!-- Fungere ikke lige pt med vercel, rettes næste uge -->
+
+<input placeholder="Your Name here">
+<button>Get Greeting</button>
+
+<h2 id= "greeting-text"></h2>
+
+<!-- assignment: get the greeting based on the name in the input field and show it on the page -->
+
+
+
+
+    <script>
+// task make a request to /greeting and console log the greeting
+
+const nameinput = document.getElementById("name-input");
+const greeting2 = document.getElementById("greeting-text")
+function showGreeting() {
+    const name = nameinput.value;
+fetch("/greeting?name" + name)
+.then((response) => response.json())
+.then((result) => {
+    greetingH2.textContent = result.data;
+    });
+}
+
+
+
+
+            fetch("greeting?name=knowName")
+                .then(response => response.json())
+                .then((result) => {
+                console.log(result.data); // Logs the greeting to the console
+                });
+
+    </script>
+
+  </body>
+</html>
