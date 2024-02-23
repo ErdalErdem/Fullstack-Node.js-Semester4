@@ -34,6 +34,11 @@ app.get('/day', (req, res) => {
 res.send({data: dayName})
 })
 
+app.get('/time', (req, res) => {
+    const now = new Date();
+    res.json({ time: now.toLocaleTimeString() });
+  });
+
 
 const PORT = 8080;
 app.listen(PORT, () => console.log("Server is running on port", PORT))
