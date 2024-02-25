@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-
+/*
 // UTC
 console.log(new Date());
 
@@ -11,11 +11,12 @@ console.log(Date.now())
 // Local time (in my case right now and here CEST GMT+0100)
 console.log(Date());
 
+*/
+
 // assigment  create a route /date that returns the date
-const date = Date();
-app.get("date", (req, res) => {
-    res.send({data: Date() });
-})
+app.get("/date", (req, res) => {
+    res.send({ data: new Date().toString() });
+});
 
 // create a route with the endpoint /month
 // that returns the current month in the format
@@ -45,3 +46,4 @@ app.listen(PORT, () => console.log("Server is running on port", PORT))
 
 // Export the Express API
 module.exports = app;
+
