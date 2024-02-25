@@ -82,7 +82,7 @@
 <script>
 
 document.getElementById('fetchDate').addEventListener('click', function() {
-            fetch('/date')
+            fetch('http://localhost:8080/date')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('dateDisplay').textContent = data.data;
