@@ -18,7 +18,7 @@
 <script>
 
 function fetchDate() {
-            fetch('http://localhost:8080/date')
+            fetch('/date')
                 .then(response => response.json()) // Parse the JSON response
                 .then(data => {
                     document.getElementById('date').textContent = data.data; // Update the page with the date
