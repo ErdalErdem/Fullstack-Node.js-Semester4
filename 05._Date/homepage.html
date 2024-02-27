@@ -1,35 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WWC</title>
-  </head>
-  <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-  </body>
-
-  <h1>Date from Server:</h1>
-    <p id="date">Loading...</p>
-
-<script>
-
-function fetchDate() {
-            fetch('/date')
-                .then(response => response.json()) // Parse the JSON response
-                .then(data => {
-                    document.getElementById('date').textContent = data.data; // Update the page with the date
-                })
-                .catch(error => {
-                    console.error('Error fetching the date:', error);
-                    document.getElementById('date').textContent = 'Failed to load date.';
-                });
+    <style>
+        body {
+            font-family: 'Orbitron', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
-        fetchDate(); // Call the function to fetch the date
-    
+
+        button {
+            text-decoration: none;
+            position: relative;
+            border: none;
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            color: #fff;
+            width: 9em;
+            height: 3em;
+            line-height: 2em;
+            text-align: center;
+            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+            background-size: 300%;
+            border-radius: 30px;
+            z-index: 1;
+        }
+
+        button:hover {
+            animation: ani 8s linear infinite;
+            border: none;
+        }
+
+        @keyframes ani {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 400%;
+            }
+        }
+
+        button:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            z-index: -1;
+            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+            background-size: 400%;
+            border-radius: 35px;
+            transition: 1s;
+        }
+
+        button:hover::before {
+            filter: blur(20px);
+        }
+
+        button:active {
+            background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+        }
+
+        .card {
+            width: 190px;
+            height: 254px;
+            border-radius: 50px;
+            background: #e0e0e0;
+            box-shadow: 20px 20px 60px #bebebe,
+                        -20px -20px 60px #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>World Wide Clock</h1>  
+    </main>
+
+    <div class="card">
+        <div id="digital-clock">00:00:00</div>
+    </div>
+    <p id="date">Loading...</p>
+    <button id="fetch-date-btn">Date?</button>
+
+<script>
+function fetchDate() {
+    fetch('http://localhost:8080/date')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('date').textContent = data.data;
+        })
+        .catch(error => {
+            console.error('Error fetching the date:', error);
+            document.getElementById('date').textContent = 'Failed to load date.';
+        });
+}
+
+document.getElementById('fetch-date-btn').addEventListener('click', fetchDate);
+
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    document.getElementById('digital-clock').textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock(); // Opdater uret med det samme ved indlæsning
+
 </script>
+</body>
 </html>

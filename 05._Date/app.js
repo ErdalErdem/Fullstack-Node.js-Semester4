@@ -1,6 +1,12 @@
-const express = require("express");
-
+const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors()); // Tillad CORS
+app.use(express.static('public')); 
+
+app.use(express.static('05._Date/app.js'));
+
 
 // UTC
 console.log(new Date());
