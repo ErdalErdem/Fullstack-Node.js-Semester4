@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors()); // Tillad CORS
-app.use(express.static('public')); 
+app.use(express.static('./public/homepage.html')); 
 
 
 // UTC
