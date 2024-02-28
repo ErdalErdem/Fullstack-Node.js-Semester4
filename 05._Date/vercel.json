@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "app.js"
+        "dest": "/05._Date/app.js"
       }
     ] 
   }
