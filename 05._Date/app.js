@@ -1,9 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-
 app.use(cors()); // Tillad CORS
-app.use(express.static('./public/homepage.html')); 
 
 
 // UTC
@@ -46,8 +44,8 @@ app.get("/day", (req, res) => {
     res.send({ data: dayName });
 });
 
-// const PORT = 8080;
-// app.listen(PORT, () => console.log("Server is running on port", PORT));
+const PORT = 8080;
+app.listen(PORT, () => console.log("Server is running on port", PORT));
 
 // Export the Express API
 module.exports = app;
