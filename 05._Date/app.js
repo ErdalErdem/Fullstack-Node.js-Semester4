@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors()); // Tillad CORS
+
 app.use(express.static('public')); 
 
 
@@ -19,6 +20,8 @@ console.log(Date());
 app.get("/date", (req, res) => {
     res.send({ data: Date() });
 });
+
+/*
 
 const months = ["January", "February", "March", "April", "May", "June", "July", 
                 "August", "September", "October", "November", "December"];
@@ -45,6 +48,8 @@ app.get("/day", (req, res) => {
     const dayName = days[new Date().getDay()];
     res.send({ data: dayName });
 });
+
+*/
 
 const PORT = 8080;
 app.listen(PORT, () => console.log("Server is running on port", PORT));
