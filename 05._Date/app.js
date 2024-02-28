@@ -7,16 +7,11 @@ app.use(cors()); // Tillad CORS
 app.use(express.static('public')); 
 
 
-/*
+
 app.get("/date", (req, res) => {
     res.send({ data: Date() });
 });
 
-*/
-
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/public/homepage.html");
-});
 
 const PORT = 8080;
 app.listen(PORT, () => console.log("Server is running on port", PORT));
