@@ -7,6 +7,24 @@ app.use(cors()); // Tillad CORS
 app.use(express.static('public')); 
 
 
+/*
+app.get("/date", (req, res) => {
+    res.send({ data: Date() });
+});
+
+*/
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/public/homepage.html");
+});
+
+const PORT = 8080;
+app.listen(PORT, () => console.log("Server is running on port", PORT));
+
+// Export the Express API
+module.exports = app;
+
+/*
 // UTC
 console.log(new Date());
 
@@ -15,11 +33,8 @@ console.log(Date.now());
 
 // Local time (in my case right now and here CEST GMT+0100)
 console.log(Date());
+*/
 
-
-app.get("/date", (req, res) => {
-    res.send({ data: Date() });
-});
 
 /*
 
@@ -51,10 +66,6 @@ app.get("/day", (req, res) => {
 
 */
 
-const PORT = 8080;
-app.listen(PORT, () => console.log("Server is running on port", PORT));
 
-// Export the Express API
-module.exports = app;
 
 
