@@ -1,4 +1,29 @@
-const express = require('express');
+const express = require("express");
+const fs = require("node:fs/promises");
+
+const app = express();
+
+const PORT = 8080;
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/homepage.html")
+})
+
+app.get("/1", (req, res) => {
+    res.send({ data: "WWC"})
+});
+
+
+
+
+
+app.listen(PORT, () => {console.log("Server is running on port:", PORT)});
+
+module.exports = app;   
+
+
+
+/* const express = require('express');
 const cors = require('cors');
 const app = express();
 
@@ -18,6 +43,8 @@ app.listen(PORT, () => console.log("Server is running on port", PORT));
 
 // Export the Express API
 module.exports = app;
+
+*/
 
 /*
 // UTC
