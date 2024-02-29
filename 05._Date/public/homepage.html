@@ -111,7 +111,7 @@
 
 <script>
 function fetchDate() {
-    fetch('https://fullstack-node-js-semester4.vercel.app/date')
+    fetch('http://localhost:8080/date')
         .then(response => response.json())
         .then(data => {
             document.getElementById('date').textContent = data.data;
