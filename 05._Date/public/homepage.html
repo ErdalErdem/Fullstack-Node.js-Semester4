@@ -111,7 +111,7 @@
 
 <script>
 function fetchDate() {
-    fetch('http://localhost:8080/date')
+    fetch('/date')
         .then(response => response.json())
         .then(data => {
             document.getElementById('date').textContent = data.data;
