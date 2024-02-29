@@ -13,30 +13,9 @@ app.listen(PORT, () => {console.log("Server is running on port:", PORT)});
 
 module.exports = app;   
 
-
-
-/* const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use(cors()); // Tillad CORS
-
-app.use(express.static('public')); 
-
-
-
 app.get("/date", (req, res) => {
     res.send({ data: Date() });
 });
-
-
-const PORT = 8080;
-app.listen(PORT, () => console.log("Server is running on port", PORT));
-
-// Export the Express API
-module.exports = app;
-
-*/
 
 /*
 // UTC
