@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <title>Dog tinder</title>
 </head>
 <body>
-    <h1>Woof</h1>
 
-    <nav> 
-    <a href="/"> <img id="logo" src="/assets/images/logo.png"></a>    
-    <a href="/matches">Matches</a>
-    
+    <nav class="navbar">
+        <a href="/"> <img id="logo" src="/assets/images/logo.png"></a>    
+        <a href="/matches">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
     </nav>
+    
+
+    <footer>
+        <p> © Copyrights <span id="year"></span> by Erdal All rights reserved.</p>
+    </footer>
+
+<script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
