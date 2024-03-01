@@ -34,8 +34,14 @@ app.get("/knownpeople", (req, res) => {
 });
 
 app.get("/proxy", (req, res) => {
-    
-})
+    fetch("http://www.google.com")
+        .then(response => response.text()) // Convert the response to text
+        .then(body => res.send(body)) // Send the response body to the client
+        .catch(error => {
+            console.error('Error fetching Google:', error);
+            res.status(500).send('An error occurred');
+        });
+});
 
 
 const PORT = 8080;
