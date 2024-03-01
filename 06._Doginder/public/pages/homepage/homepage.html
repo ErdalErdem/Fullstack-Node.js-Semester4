@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <title>Dog tinder</title>
 </head>
 <body>
 
     <nav class="navbar">
         <a href="/"> <img id="logo" src="/assets/images/logo.png"></a>    
-        <a href="/matches">Home</a>
-        <a href="#News">Your Matches</a>
-        <a href="#contact">Contact</a>
+        <a href="#News"> News</a>
+        <a href="/matches">Your Matches</a>
+        <a href="/contact">Contact</a>
         <a href="#about">About</a>
     </nav>
     
+    <main>
 
-    <footer>
-        <p> © Copyrights <span id="year"></span> by Erdal All rights reserved.</p>
+        <a href="/matches"><button>Find your true wuf!</button></a>
+
+    </main>
+
+   <footer>
+        <p id="copyright-year"></p>
     </footer>
 
-<script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-    </script>
+    <script src="/assets/js/footer.js"></script>
 
 </body>
 </html>
