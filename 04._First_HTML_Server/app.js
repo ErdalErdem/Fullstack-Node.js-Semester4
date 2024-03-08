@@ -18,6 +18,22 @@ app.get("/publicsquare", (req, res) => {
     res.sendFile(__dirname + "/public/publicSquare/publicSquare.html");
 });
 
+app.get("/treasuretrove", (req, res) => {
+    res.send({data: "You found it"})
+});
+
+app.get("/secretpassphrase", (req, res) => {
+    // task: Get the passphrase from the query string and compare it below
+    if (req.query.passphrase !== "SesameOpenUp") {
+        res.status(400).send({data: "Wrong passphrase"});
+    } else {
+        res.redirect("/treasuretrove");s
+    }
+});
+
+// html = client
+// app.js etc server
+
 const knownNames = ["Anders", "Alice"];
 
 app.get("/greeting", (req, res) => {
