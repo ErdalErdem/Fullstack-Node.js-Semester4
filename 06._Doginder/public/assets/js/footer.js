@@ -1,3 +1,3 @@
-const copyrightYearP = document.getElementById("copyright-year")
+const copyrightYearP = document.getElementById("copyright-year");
 const currentYear = new Date().getFullYear();
-copyrightYearP.textContent="©DogInder" + currentYear;
+copyrightYearP.textContent = "©" + currentYear;

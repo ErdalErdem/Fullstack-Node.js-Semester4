@@ -1,32 +1,13 @@
 #logo {
-    width: 7em;
+    width: 10em;
 }
 
-.navbar {
-    overflow: hidden;
-    background-color: #af0000;
-    font-family: 'Orbitron', monospace;
+body {
+    min-height: 95vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-/* Style the navigation links */
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-/* Change color on hover */
-.navbar a:hover {
-    background-color: #ddd;
-    color: rgb(0, 60, 255);
-}
-
-#footer {
-    display: flex;
-    align-items: last baseline;
+main {
+    flex: 1;
 }
