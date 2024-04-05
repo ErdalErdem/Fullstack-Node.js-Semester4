@@ -1,15 +1,1 @@
-
-<script>
-import Greeter from "./components/Greeter/Greeter.svelte";
-import FriendsCounter from "./components/FriendsCounter/FriendsCounter.svelte"
-
-</script>
-
-<main>
-  <Greeter name="Eve"></Greeter>
-
-  <FriendsCounter friendsCounter={5}></FriendsCounter>
-  
- </main>
-
-
+<h1>Hello</h1>
