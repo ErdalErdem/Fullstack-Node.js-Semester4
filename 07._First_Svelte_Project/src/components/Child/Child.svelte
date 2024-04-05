@@ -1,64 +1,68 @@
 <script>
-
     export let child;
     export let onShowLove;
     export let onTakeFromTreasureChest;
 
-import { fridgeMessages } from "../../stores/fridgeMessageStore";
+    import { fridgeMessages } from "../../stores/fridgeMessageStore.js";
 
-let fridMessageInputValue = "";
+    let fridgeMessageInputValue = "";
 
-function submitFridgeMessage() {
+    function submitFridgeMessage() {
         const newFridgeMessage = {
             creator: child.name,
-            message: fridMessageInputValue
+            message: fridgeMessageInputValue
         };
-        fridgeMessages.set([...$fridgeMessages, newFridgeMessage]);
-        fridMessageInputValue = "";
-}
+        // fridgeMessages.set([...$fridgeMessages, newFridgeMessage]);
 
+        fridgeMessages.update((fridgeMessagesStoreValue) => {
+            fridgeMessagesStoreValue.push(newFridgeMessage);
+            return fridgeMessagesStoreValue;
+        });
+
+        fridgeMessageInputValue = "";
+
+    }
 </script>
-
 
 <div
     class:is-girl={child.isGirl}
     class:is-boy={!child.isGirl}
     class={child.familySheep || "not-a-sheep"}
-
 >
+    <h2>{child.name}</h2>
 
-<h2>{child.name}</h2>
+    <label for="fridgeMessage">Write a Fridge Message</label>
+    <input type="text" name="fridgeMessage" placeholder="Fridge Message"
+            bind:value={fridgeMessageInputValue}
+    >
+    <br>
+    <button on:click={submitFridgeMessage}>Write Fridge Message</button>
+    <br><br>
 
-<label for="fridgeMessage"> Write a fridge message </label>
-<input type="text" name="fridgeMessage" placeholder="Fridge Message"
-    bind:value={fridMessageInputValue}
->
-<br>
-<button on:click={submitFridgeMessage}> fridge message</button>
-<br>
-
-<button on:click={() => onShowLove(child.name)}>Show Love 💚</button>
-
-<button on:click={onTakeFromTreasureChest}> Take from chest</button>
-
+    <button on:click={() => onShowLove(child.name)}>Show Love 💚</button>
+    <br>
+    <button on:click={() => onTakeFromTreasureChest(child.name)}>Take from treasure chest</button>
 </div>
 
+
 <style>
+    .is-girl {
+        background-color: blue;
+    }
 
-.is-girl {
-    background-color: blue;
-}
+    .is-boy {
+        background-color: pink;
+    }
 
-.is-boy {
-    background-color: rgb(255, 145, 0);
+    .not-a-sheep {
+        border: 0.5em solid goldenrod;
+    }
 
-}
+    .grey-sheep {
+        border: 0.5em solid grey;
+    }
 
-.not-a-sheep {
-    background-color: blueviolet;
-}
-
-
-
-
+    .black-sheep {
+        border: 0.5em solid darkkhaki;
+    }
 </style>
